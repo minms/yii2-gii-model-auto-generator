@@ -1,0 +1,22 @@
+{
+  "name": "minms/yii2-gii-model-auto-generator",
+  "description": "批量将数据库中的表自动生成为YII2的AR模型",
+  "minimum-stability": "dev",
+  "license": "Apache License 2.0",
+  "authors": [
+    {
+      "name": "luckerdj",
+      "email": "master@minms.com"
+    }
+  ],
+  "require":{
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "~2.0.0",
+    "yiisoft/yii2-gii":"~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "minms\\gii\\": ""
+    }
+  }
+}
