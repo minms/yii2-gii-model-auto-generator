@@ -9,6 +9,7 @@
 namespace minms\gii;
 
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\console\Controller;
 use yii\db\Connection;
 
@@ -17,15 +18,24 @@ class AutoGeneratorController extends Controller
     /**
      * @var string yii文件所在绝对路径
      */
-    public $yiiPath = '../../yii';
+    public $yiiPath = 'yii';
 
     /**
      * @var Connection|string 数据库连接|数据库配置
      */
     public $db = 'db';
 
+    /**
+     * @var string 命名空间
+     */
     public $ns = 'common\\\\models\\\\base';
+    /**
+     * @var int 是否使用表前缀
+     */
     public $useTablePrefix = 1;
+    /**
+     * @var int 是否使用表注释生成字段说明
+     */
     public $generateLabelsFromComments = 1;
 
     /**
@@ -37,7 +47,12 @@ class AutoGeneratorController extends Controller
             $this->db = Yii::$app->get($this->db);
         }
 
+        //检查yii路径
         $this->yiiPath = realpath($this->yiiPath);
+        if($this->yiiPath === false){
+            throw new InvalidConfigException('错误的路径: '.$this->yiiPath.' 请使用绝对路径');
+        }
+
         parent::init();
     }
 
