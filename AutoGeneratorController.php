@@ -72,7 +72,7 @@ class AutoGeneratorController extends Controller
 
         foreach ($tables as &$table) {
             $table = current($table);
-            $class = str_replace(' ', '', ucwords(str_replace('_', ' ', $table)));
+            $class = str_replace(' ', '', ucwords(str_replace('_', ' ', str_replace($this->db->tablePrefix, '', $table))));
             echo "\n" . 'exec: php ' . $this->yiiPath . ' gii/model --tableName=' . $table . ' --modelClass=' . $class . ' --ns=' . $this->ns . ' '
                 . '--useTablePrefix=' . $this->useTablePrefix . ' '
                 . '--generateLabelsFromComments=' . $this->generateLabelsFromComments . ' ' . "\n";

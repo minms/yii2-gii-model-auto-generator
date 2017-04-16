@@ -2,9 +2,9 @@
 批量将数据库中的表自动生成为YII2的AR模型
 
 
-###使用方法
+### 使用方法
 
-####YII2高级模板
+#### YII2高级模板
 在console/config/main.php中加入
 ```
 'controllerMap' => [
