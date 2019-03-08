@@ -4,6 +4,8 @@
 
 ### 使用方法
 
+`composer require "minms/yii2-gii-model-auto-generator:dev-master"`
+
 #### YII2高级模板
 在console/config/main.php中加入
 ```
